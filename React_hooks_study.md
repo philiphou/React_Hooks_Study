@@ -13,3 +13,13 @@
             1. 如果更新状态不依赖于原状态，使用对象方式
             2. 如果更新状态依赖于原状态，使用函数方式
             3. 如果需要在setState()执行后获取的最新的状态数据，要在第二个callback 函数中读取；异步渲染；
+2. lazy_load: 
+    - import React, { Component,lazy,Suspense } from 'react'
+    - 
+        const Home=lazy(()=>import('./Home'))
+        const About=lazy(()=>import('./About'))
+    -           <Suspense fallback={<h1 style={{color:'red'}}>Loading...</h1>}>
+                    <Route path='/about' component={About}/>
+                    <Route path='/home' component={Home}/>
+                </Suspense>
+    - Suspense 的fallback 属性中可以传入一个 component ,也可以手写一个节点
