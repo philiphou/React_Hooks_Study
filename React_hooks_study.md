@@ -23,3 +23,7 @@
                     <Route path='/home' component={Home}/>
                 </Suspense>
     - Suspense 的fallback 属性中可以传入一个 component ,也可以手写一个节点
+3. Hooks
+    - Hook 是react16.8版本中增加的新特性，可以让函数式组件中使用 state以及其他的react特性
+    - 常用hooks： React.useState(); React.useEffect(); React.useRef()
+    - 
