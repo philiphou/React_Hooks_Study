@@ -26,4 +26,24 @@
 3. Hooks
     - Hook 是react16.8版本中增加的新特性，可以让函数式组件中使用 state以及其他的react特性
     - 常用hooks： React.useState(); React.useEffect(); React.useRef()
-    - 
+4. Fragment: 利用Fragment 标签，可以在编译时候减少层级结构，避免额外的div层级；也可以写个空标签 <></> 但是空标签不能有任何属性， Fragment标签可以有属性，只能拥有一个key属性
+5. Context: 主要用于组件之间的通信，特别适用于祖组件和后代组件之间的通信；
+    -使用：
+        --. 创建Context 容器对象
+            const xxxContext=React.createContext()
+        -- 渲染子组件时候，外面包裹 xxxContext.Provider， 通过value属性传递给后代组件数据
+            <xxxContext.Provider>
+        -- 后代组件读取数据; 
+            1) 第一种方式： 
+            static contextType=xxxContext // 声明接收context
+            this.context // 读取context中对策value值
+            2） 函数组件与类组件都可以使用：
+                <xxxContext.Consumer>
+                {
+                    value=>{
+                        <!-- value 就是context里的value数据 -->
+                        要显示的内容 
+                    }
+                }
+                </xxxContext.Consumer>
+
