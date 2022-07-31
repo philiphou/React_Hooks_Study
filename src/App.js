@@ -1,13 +1,15 @@
-import React, { Component } from 'react'
-import Demo from './components/09.render_props'
+import React, { Component, Fragment } from 'react'
+import Parent from './components/10.errorBoundaries错误边界/Parent'
 
 export default class App extends Component {
   render() {
     return (
-      <div id='test'>
-        <Demo/>
-      </div>
-    )
+      <Fragment>
+        <Parent/>
+   
+      </Fragment>
+ 
+     )
   }
 }
 
