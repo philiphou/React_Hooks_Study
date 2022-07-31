@@ -61,3 +61,16 @@
             1） 只是进行state和props的数据的浅比较，如果只是数据对象内部数据变了，返回false
             2) 不要直接修改state数据， 而是要产生新数据
             项目中一般使用PureComponent进行优化；
+7. render-props
+    - 有两个组件： A 和 B， 如果想让A 和B 形成父子关系：
+        方法1. 将B组件作为标签体内容传递给A， 那么A 组件的props的 children属性就存储了 B 组件，然后在A 组件里调用渲染： {this.props.children}
+          <A>
+            <B/>
+          </A>
+        方法2： 给A组件设置一个render属性，该属性是一个函数，该函数有一个返回值，返回值是B 组件：
+                <A render={()=><B/>}>
+                然后在A组件中调用A 组件的render方法： {this.props.render()}
+                同时 render函数还可以让A传递给B 参数，例如：把A 状态里的name属性传递给B组件:
+
+                <A render={(name)=><B name={name}>}>
+                {this.props.render(this.state.name)}

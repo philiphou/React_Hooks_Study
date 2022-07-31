@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
-import Demo from './components/08.pureComponent'
-import './app.css'
+import Demo from './components/09.render_props'
 
 export default class App extends Component {
   render() {
