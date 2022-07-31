@@ -74,3 +74,23 @@
 
                 <A render={(name)=><B name={name}>}>
                 {this.props.render(this.state.name)}
+8. error boundaries 错误边界：  
+    - 一般只捕获render时候发生的错误，将错误控制在子组件内部，而不影响全局渲染：利用钩子函数：  
+         static getDerivedStateFromError(error){
+                                console.log(error)
+                                return{haserror:error}
+                            }
+9. 组件之间通讯方式总结：   
+    - 组件之间关系：
+        -- 父子关系
+        -- 兄弟关系
+        -- 祖孙后代跨级关系
+    - 集中通讯方式：
+        - props
+        - 消息订阅与发布： pubsub.js
+        - 集中式管理： redux, react-redux
+        - Context
+    - 比较好的搭配方式：
+        -- 父子组件：  利用 props
+        -- 兄弟组件： 消息订阅与发布，集中式管理（redux)
+        -- 祖孙组件： 消息订阅与发布，集中式管理以及Context
