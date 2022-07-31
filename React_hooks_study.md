@@ -46,4 +46,18 @@
                     }
                 }
                 </xxxContext.Consumer>
-
+6. PureComponent:
+    - Component 的2个问题：
+        -- 只要执行setState()， 即使不改变状态数据，组件也会重新render
+        -- 只要当前组件render,就会重新render子组件，效率低
+    - 效率高的做法：
+        -- 只有当前组件的state或者 props 数据发生变化时候，才重新render()
+    - 原因：
+        -- Component中的shouldComponentUpdate总是返回true
+    - 解决方法：
+        -- 1. 重写shoudComponentUpdate(), 比较新旧state或者 props数据， 如果有变化才会render,如果没有返回false
+        -- 2. 使用pureComponent， pureComponent 重写了shouldComponentUpdate()， 只有state或者 props 数据 变化时候才会返回true
+        -- 注意：
+            1） 只是进行state和props的数据的浅比较，如果只是数据对象内部数据变了，返回false
+            2) 不要直接修改state数据， 而是要产生新数据
+            项目中一般使用PureComponent进行优化；

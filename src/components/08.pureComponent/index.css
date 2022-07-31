@@ -1,0 +1,9 @@
+.parent{
+    background-color:#bfa;
+    margin-top: 10px;
+    margin-left: 15px;
+}
+.child{
+    background-color:pink;
+margin: 5px;
+}

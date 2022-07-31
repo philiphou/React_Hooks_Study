@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import Demo from './components/07.Context'
+import Demo from './components/08.pureComponent'
 import './app.css'
 
 export default class App extends Component {
